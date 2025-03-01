@@ -1,6 +1,7 @@
 export const initialState = {
    loginStatus: false,
-   token: ""
+   token: "",
+   registrationStatus: false
 }
 
 export const appReducer = (state = initialState, action ) =>{
@@ -8,7 +9,7 @@ export const appReducer = (state = initialState, action ) =>{
         case 'LOGIN':
             return {...state, loginStatus: "", token: "" }
         case 'REGISTER':
-            return {...state, loginStatus: "", token: ""}    
+            return {...state, registrationStatus: action.payload}    
 
             default: 
             return state;

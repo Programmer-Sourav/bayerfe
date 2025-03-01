@@ -33,7 +33,17 @@ export async function signUpUser(nameOfUser, username, password, userType, dispa
     try{
        const response = await axios.post(signupUrl, dataBody)
        const data = response.data;
-       dispatch({type: "REGISTER", payload: "Some Data"})
+       const statusCode = data.statusCode;
+       if(statusCode===200){
+        const message = data.message;
+        console.log(message)
+        dispatch({type: "REGISTER", payload: true})
+       }
+       else{
+        console.log("Some error occured!")
+        dispatch({type: "REGISTER", payload: false})
+       }
+       
     }
     catch(error){
       console.error("Error "+ error.message);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { signUpUser } from "../remoteapis/remote-api-interaction";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router";
 
 const RegisterPage = () => {
 
@@ -12,7 +13,11 @@ const RegisterPage = () => {
     const dispatch = useDispatch();
     
 
-    const {loginStatus } = useSelector((state)=>state)
+    const {registrationStatus} = useSelector((state)=>state)
+
+    if(registrationStatus){
+      <Link to="/"></Link>
+    }
 
     const onBtnClick = () =>{
         const loginItem = {username: userEmail, password: password}
