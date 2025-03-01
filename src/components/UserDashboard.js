@@ -176,8 +176,9 @@ const UserDashboard = () => {
           <h3 className="text-left text-lg font-semibold mb-6 text-gray-700">
             Wellness Goals
           </h3>
-          <ActivityMetrics />
         </div>
+
+        <ActivityMetrics />
 
         <div className="mt-8 bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
           <h3 className="text-left text-lg font-semibold mb-3 text-gray-700">
