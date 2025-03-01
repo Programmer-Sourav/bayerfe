@@ -16,7 +16,7 @@ const RegisterPage = () => {
 
     const {registrationStatus} = useSelector((state)=>state)
     if(registrationStatus){
-      navigate('/')
+      navigate('/login')
     }
 
     const onBtnClick = () =>{

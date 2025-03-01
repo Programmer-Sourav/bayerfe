@@ -19,9 +19,18 @@ export async function loginUser(username, password, dispatch) {
     try {
         const response = await axios.post(loginUrl, dataBody); 
         console.log(response.data);
-
-        const dataReceived = { loginStatus: "Success", token: "xyz123" }; 
-        dispatch({ type: "LOGIN", payload: dataReceived });
+        const data = response.data;
+        const statusCode = response.status;
+        if(statusCode===200){
+         const message = data.message;
+         console.log(message)
+         const dataReceived = { loginStatus: "Success", token: data.token }; 
+         dispatch({type: "LOGIN", payload: dataReceived})
+        }
+        else{
+            dispatch({ type: "LOGIN", payload: dataReceived });
+        }
+       
     } catch (error) {
         console.error("Error: " + error.message);
     }

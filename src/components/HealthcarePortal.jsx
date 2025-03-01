@@ -57,7 +57,7 @@ const HealthcarePortal = () => {
                 (item) => (
                   <a
                     key={item}
-                    href="#"
+                    href="/login"
                     className="text-gray-600 hover:text-blue-600 transition-colors"
                     onClick={() => setIsMenuOpen(false)} // Close the menu on click for mobile
                   >
