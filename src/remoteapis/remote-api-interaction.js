@@ -14,7 +14,7 @@ export async function getUser() {
 
 
 export async function loginUser(username, password, dispatch) {
-    const dataBody = { email: username, password: password };
+     const dataBody = { email: username, password: password };
      const loginUrl = `${BASE_URL}/user/login`
     try {
         const response = await axios.post(loginUrl, dataBody); 
@@ -24,8 +24,9 @@ export async function loginUser(username, password, dispatch) {
         if(statusCode===200){
          const message = data.message;
          console.log(message)
-         const dataReceived = { loginStatus: "Success", token: data.token }; 
+         const dataReceived = { loginStatus: true, token: data.token }; 
          dispatch({type: "LOGIN", payload: dataReceived})
+         localStorage.setItem("loginToken",token )
         }
         else{
             dispatch({ type: "LOGIN", payload: dataReceived });
