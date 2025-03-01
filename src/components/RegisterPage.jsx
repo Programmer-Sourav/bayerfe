@@ -7,6 +7,7 @@ const RegisterPage = () => {
   const [userEmail, setUserEmail] = useState("")
   const [password, setPassword] = useState("")
   const [username, setUsername] = useState("")
+  const [selectedRadioBtn, setSelectedRadioBtn] = useState("p")
 
     const dispatch = useDispatch();
     
@@ -93,7 +94,14 @@ const RegisterPage = () => {
                 onChange={(e)=>{setPassword(e.target.value)}}
               />
             </div>
-
+            <label>
+             <input type="radio" checked={selectedRadioBtn.includes("p")} onChange={()=>{setSelectedRadioBtn("p")}}/>
+             Patient
+             </label>
+             <label>
+             <input type="radio" checked={selectedRadioBtn.includes("hp")} onChange={()=>{setSelectedRadioBtn("hp")}}/>
+             Service Provider
+             </label>
             <button
               type="submit"
               className="w-full bg-blue-600 text-white py-2 px-4 rounded-md 
