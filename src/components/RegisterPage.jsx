@@ -100,11 +100,11 @@ const RegisterPage = () => {
               />
             </div>
             <label>
-             <input type="radio" checked={selectedRadioBtn.includes("p")} onChange={()=>{setSelectedRadioBtn("p")}}/>
+             <input type="radio" name="userType" checked={selectedRadioBtn==="p"} onChange={()=>{setSelectedRadioBtn("p")}}/>
              Patient
              </label>
              <label>
-             <input type="radio" checked={selectedRadioBtn.includes("hp")} onChange={()=>{setSelectedRadioBtn("hp")}}/>
+             <input type="radio" name="userType" checked={selectedRadioBtn==="hp"} onChange={()=>{setSelectedRadioBtn("hp")}}/>
              Service Provider
              </label>
             <button
