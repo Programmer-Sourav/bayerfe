@@ -55,6 +55,7 @@ const LoginPage = () => {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
                             focus:border-blue-500 focus:ring-blue-500 p-2 border"
                 placeholder="Enter your email"
+                value={userEmail}
                 onChange={(e)=>{setUserEmail(e.target.value)}}
               />
             </div>
@@ -69,6 +70,7 @@ const LoginPage = () => {
               <input
                 type="password"
                 id="password"
+                value={password}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
                             focus:border-blue-500 focus:ring-blue-500 p-2 border"
                 placeholder="Enter your password"

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { signUpUser } from "../remoteapis/remote-api-interaction";
 
 const RegisterPage = () => {
 
   const [userEmail, setUserEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [username, setUsername] = useState("")
 
     const dispatch = useDispatch();
     
@@ -12,10 +14,10 @@ const RegisterPage = () => {
 
     const onBtnClick = () =>{
         const loginItem = {username: userEmail, password: password}
-        loginUser(userEmail, password, dispatch)
+        signUpUser(username, userEmail, password, dispatch)
     }
 
-    
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-4">
       <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-md space-y-6">
@@ -40,7 +42,7 @@ const RegisterPage = () => {
           <div className="space-y-4">
             <div>
               <label
-                htmlFor="email"
+                htmlFor="username"
                 className="float-left text-sm font-medium text-gray-700"
               >
                 User Name
@@ -48,9 +50,11 @@ const RegisterPage = () => {
               <input
                 type="text"
                 id="user"
+                value={username}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
                             focus:border-blue-500 focus:ring-blue-500 p-2 border"
                 placeholder="Create your user name"
+                onChange={(e)=>{setUsername(e.target.value)}}
               />
             </div>
             <div>
@@ -63,9 +67,11 @@ const RegisterPage = () => {
               <input
                 type="email"
                 id="email"
+                value={userEmail}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
                             focus:border-blue-500 focus:ring-blue-500 p-2 border"
                 placeholder="Enter your email"
+                onChange={(e)=>setUserEmail(e.target.value)}
               />
             </div>
 
@@ -79,9 +85,11 @@ const RegisterPage = () => {
               <input
                 type="password"
                 id="password"
+                value={password}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm 
                             focus:border-blue-500 focus:ring-blue-500 p-2 border"
                 placeholder="Enter your password"
+                onChange={(e)=>{setPassword(e.target.value)}}
               />
             </div>
 
@@ -89,6 +97,7 @@ const RegisterPage = () => {
               type="submit"
               className="w-full bg-blue-600 text-white py-2 px-4 rounded-md 
                           hover:bg-blue-700 transition-colors duration-200"
+                          onClick={onBtnClick}
             >
               Login
             </button>
