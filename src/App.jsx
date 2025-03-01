@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import Login from './Login'
 import LoginPage from './components/LoginPage'
 import RegisterPage from './components/RegisterPage'
+import HealthcarePortal from './components/HealthcarePortal'
+import UserDashboard from './components/UserDashboard'
 
 
 function App() {
@@ -14,8 +16,10 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" element= {<LoginPage/>}/> 
+      <Route path="/" element= {<HealthcarePortal/>}/> 
+      <Route path="/login" element= {<LoginPage/>}/> 
       <Route path='/register' element = {<RegisterPage/>}/>
+      <Route path='/user' element = {<UserDashboard/>}/>
     </Routes>
      
     </>

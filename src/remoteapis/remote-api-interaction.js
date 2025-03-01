@@ -14,14 +14,24 @@ export async function getUser() {
 
 
 export async function loginUser(username, password, dispatch) {
-    const dataBody = { email: username, password: password };
+     const dataBody = { email: username, password: password };
      const loginUrl = `${BASE_URL}/user/login`
     try {
         const response = await axios.post(loginUrl, dataBody); 
         console.log(response.data);
-
-        const dataReceived = { loginStatus: "Success", token: "xyz123" }; 
-        dispatch({ type: "LOGIN", payload: dataReceived });
+        const data = response.data;
+        const statusCode = response.status;
+        if(statusCode===200){
+         const message = data.message;
+         console.log(message)
+         const dataReceived = { loginStatus: true, token: data.token }; 
+         dispatch({type: "LOGIN", payload: dataReceived})
+         localStorage.setItem("loginToken",token )
+        }
+        else{
+            dispatch({ type: "LOGIN", payload: dataReceived });
+        }
+       
     } catch (error) {
         console.error("Error: " + error.message);
     }
@@ -31,9 +41,19 @@ export async function signUpUser(nameOfUser, username, password, userType, dispa
     const dataBody = {name: nameOfUser, email: username, password: password, userType: userType}
     const signupUrl = `${BASE_URL}/user/signup`
     try{
-       const response = await axios.post(signupUrl, dataBody)
+       const response = await axios.post(signupUrl, dataBody);
        const data = response.data;
-       dispatch({type: "REGISTER", payload: "Some Data"})
+       const statusCode = response.status;
+       if(statusCode===200){
+        const message = data.message;
+        console.log(message)
+        dispatch({type: "REGISTER", payload: true})
+       }
+       else{
+        console.log("Some error occured!")
+        dispatch({type: "REGISTER", payload: false})
+       }
+       
     }
     catch(error){
       console.error("Error "+ error.message);

@@ -14,11 +14,15 @@ const LoginPage = () => {
     const navigate = useNavigate();
     
 
-    const {loginStatus } = useSelector((state)=>state)
+    const {loginStatus, token } = useSelector((state)=>state)
 
     const onBtnClick = () =>{
         const loginItem = {username: userEmail, password: password}
         loginUser(userEmail, password, dispatch)
+    }
+
+    if(loginStatus && token){
+      navigate("/user")
     }
 
 

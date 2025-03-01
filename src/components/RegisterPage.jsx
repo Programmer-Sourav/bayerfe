@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { signUpUser } from "../remoteapis/remote-api-interaction";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router";
+import toast from 'react-hot-toast'
 
 const RegisterPage = () => {
 
@@ -10,9 +12,14 @@ const RegisterPage = () => {
   const [selectedRadioBtn, setSelectedRadioBtn] = useState("p")
 
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     
 
-    const {loginStatus } = useSelector((state)=>state)
+    const {registrationStatus} = useSelector((state)=>state)
+    if(registrationStatus){
+      toast.success('User registared Successfully!!!')
+      navigate('/login')
+    }
 
     const onBtnClick = () =>{
         const loginItem = {username: userEmail, password: password}
@@ -94,14 +101,16 @@ const RegisterPage = () => {
                 onChange={(e)=>{setPassword(e.target.value)}}
               />
             </div>
-            <label>
-             <input type="radio" checked={selectedRadioBtn.includes("p")} onChange={()=>{setSelectedRadioBtn("p")}}/>
-             Patient
-             </label>
-             <label>
-             <input type="radio" checked={selectedRadioBtn.includes("hp")} onChange={()=>{setSelectedRadioBtn("hp")}}/>
-             Service Provider
-             </label>
+            <div className="flex justify-between">
+              <label className="">
+              <input type="radio" name="userType" checked={selectedRadioBtn==="p"} onChange={()=>{setSelectedRadioBtn("p")}}/>
+              Patient
+              </label>
+              <label>
+              <input type="radio" name="userType" checked={selectedRadioBtn==="hp"} onChange={()=>{setSelectedRadioBtn("hp")}}/>
+              Service Provider
+              </label>
+            </div>
             <button
               className="w-full bg-blue-600 text-white py-2 px-4 rounded-md 
                           hover:bg-blue-700 transition-colors duration-200"
