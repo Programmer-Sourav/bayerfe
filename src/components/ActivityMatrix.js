@@ -6,7 +6,7 @@ const ActivityMetrics = () => {
   return (
     <div>
       <div classNameName="bg-white p-6 rounded-lg shadow-sm">
-        <div className="mb-2 w-80 p-4 bg-white shadow-lg rounded-lg border max-w-full">
+        <div className="mb-2 w-80 p-4 bg-white shadow-lg rounded-lg border" style={{maxWidth: "80%"}}>
           <div className="flex justify-between items-center">
             <div className="text-gray-600 font-semibold flex items-center space-x-2">
               <span className="text-lg">👣</span>
@@ -43,7 +43,7 @@ const ActivityMetrics = () => {
         </div>
       </div>
       <div classNameName="bg-white p-6 rounded-lg shadow-sm">
-        <div className="mb-2 w-80 p-4 bg-white shadow-lg rounded-lg border max-w-full">
+        <div className="mb-2 w-80 p-4 bg-white shadow-lg rounded-lg border" style={{maxWidth: "80%"}}>
           <div className="flex justify-between items-center">
             <div className="text-gray-600 font-semibold flex items-center space-x-2">
               <span className="text-lg">👣</span>
@@ -80,7 +80,7 @@ const ActivityMetrics = () => {
         </div>
       </div>
       <div classNameName="bg-white p-6 rounded-lg shadow-sm">
-        <div className="mb-2 w-80 p-4 bg-white shadow-lg rounded-lg border max-w-full">
+        <div className="mb-2 w-80 p-4 bg-white shadow-lg rounded-lg border" style={{maxWidth: "80%"}}>
           <div className="flex justify-between items-center">
             <div className="text-gray-600 font-semibold flex items-center space-x-2">
               <span className="text-lg">👣</span>
