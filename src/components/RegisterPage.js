@@ -1,6 +1,21 @@
 import React from "react";
 
 const RegisterPage = () => {
+
+  const [userEmail, setUserEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+    const dispatch = useDispatch();
+    
+
+    const {loginStatus } = useSelector((state)=>state)
+
+    const onBtnClick = () =>{
+        const loginItem = {username: userEmail, password: password}
+        loginUser(userEmail, password, dispatch)
+    }
+
+    
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-4">
       <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-md space-y-6">

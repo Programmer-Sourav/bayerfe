@@ -25,13 +25,24 @@ export async function loginUser(username, password, dispatch) {
     }
 }
 
-// Handle some functionality with authentication
+export async function signUpUser(nameOfUser, username, password, dispatch){
+    const dataBody = {username: nameOfUser, email: username, password: password}
+    try{
+       const response = await axios.post("", dataBody)
+       const data = response.data;
+       dispatch({type: "REGISTER", payload: "Some Data"})
+    }
+    catch(error){
+      console.error("Error "+ error.message);
+    }
+}
+
 export async function someFunctionality(username, password, token) {
     const dataBody = { username, password };
 
     try {
         const response = await axios.post("", dataBody, { 
-            headers: { "Authorization": token } // Use the token for authentication
+            headers: { "Authorization": token } 
         });
         console.log(response.data);
     } catch (error) {
