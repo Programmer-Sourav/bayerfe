@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { loginUser } from "../remoteapis/remote-api-interaction";
+import { useNavigate } from "react-router";
 
 
 const LoginPage = () => {
@@ -10,6 +11,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("")
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     
 
     const {loginStatus } = useSelector((state)=>state)
@@ -79,7 +81,6 @@ const LoginPage = () => {
             </div>
 
             <button
-              type="submit"
               className="w-full bg-blue-600 text-white py-2 px-4 rounded-md 
                           hover:bg-blue-700 transition-colors duration-200"
               onClick={onBtnClick}
@@ -96,7 +97,7 @@ const LoginPage = () => {
             <p className="text-sm text-gray-600">
               New User?{" "}
               <a
-                href="#"
+                href="/register"
                 className="text-blue-600 hover:text-blue-700 font-medium"
               >
                 Register here
