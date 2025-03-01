@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { signUpUser } from "../remoteapis/remote-api-interaction";
+import { useDispatch, useSelector } from "react-redux";
 
 const RegisterPage = () => {
 
