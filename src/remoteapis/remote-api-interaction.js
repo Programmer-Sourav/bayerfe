@@ -31,9 +31,9 @@ export async function signUpUser(nameOfUser, username, password, userType, dispa
     const dataBody = {name: nameOfUser, email: username, password: password, userType: userType}
     const signupUrl = `${BASE_URL}/user/signup`
     try{
-       const response = await axios.post(signupUrl, dataBody)
+       const response = await axios.post(signupUrl, dataBody);
        const data = response.data;
-       const statusCode = data.statusCode;
+       const statusCode = response.status;
        if(statusCode===200){
         const message = data.message;
         console.log(message)

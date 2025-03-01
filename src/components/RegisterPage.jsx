@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { signUpUser } from "../remoteapis/remote-api-interaction";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const RegisterPage = () => {
 
@@ -11,12 +11,12 @@ const RegisterPage = () => {
   const [selectedRadioBtn, setSelectedRadioBtn] = useState("p")
 
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     
 
     const {registrationStatus} = useSelector((state)=>state)
-
     if(registrationStatus){
-      <Link to="/"></Link>
+      navigate('/')
     }
 
     const onBtnClick = () =>{
