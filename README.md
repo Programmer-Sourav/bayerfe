@@ -21,6 +21,7 @@ This document outlines the architecture of the frontend application, including t
 - **React.js**: Frontend framework for building user interfaces.
 - **Redux**: State management library.
 - **JavaScript (ES6+)**: Programming language.
+- **Style**: Tailwinds css.
 - **Redux Store**: Centralized state management.
 
 ---
