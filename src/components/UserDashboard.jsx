@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import ActivityMetrics from "./ActivityMatrix";
+// import { useDispatch } from "react-redux";
+// import { getUser } from "../remoteapis/remote-api-interaction";
 
 const UserDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Sidebar toggle state
+
+   //const dispatch = useDispatch();
+
+  // const getUserDetails = () =>{
+  //     dispatch(getUser(dispatch))
+  // }
+
+  // useEffect(()=>{
+  //    getUserDetails();
+  // }, [])
 
   return (
     <div className="flex min-h-screen bg-gray-100">
